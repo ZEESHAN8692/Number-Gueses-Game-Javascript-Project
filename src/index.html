@@ -15,15 +15,37 @@
   </head>
   <body>
     <div class="flex items-center flex-col w-[650px] border border-[#949a9c] m-auto mt-3.5 main rounded-[10px]
-     shadow-2xl shadow-white">
-      <h1 class="text-3xl font-bold color underline text-white">
+     shadow-2xl shadow-white ">
+      <h1 class="text-3xl font-bold color underline">
         Number Gueses Game
       </h1>
       <br>
-      <p>
+      <p class=" ">
         Try and Gueses a random Number between 1 and 100
       </p>
+      <p class="">
+        You have 10 attempts to Gueses the right Number
+      </p>
+      <br><br>
+      <form class="flex flex-col items-center">
+      <h2 class="text-4xl font-bold">
+        Gueses a Number
+      </h2>
+      <br>
+      <input type="text" class="bg-white border border-gray-800 rounded-2xl text-center w-[250px] h-[35px] text-3xl" id="inputField" >
+      <br>
+      <button class="border p-1.5 w-[150px]  rounded-2xl cursor-pointer font-bold hover:bg-blue-300" id="btn">Submit Gueses</button>
+      <br><br>
+    </form>
+    
+      <p>Previous Gueses: <span id="Previous"></span></p>
+      <p>Gueses Remaining: <span id="Remaining">10</span> </p>
+
+      <p id="resultPara" class="text-4xl font-bold "></p>
+      
+      <br>
     </div>
+    <script src="js/script.js"></script>
   </body>
 </html>
 </div>
