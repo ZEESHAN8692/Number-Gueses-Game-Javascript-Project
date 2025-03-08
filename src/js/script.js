@@ -7,7 +7,7 @@ let hiLow = document.getElementById("HiLow");
 let p = document.createElement("p");
 let randomNumber = parseInt(Math.random() * 100 + 1);
 let prevGuess = [];
-let guesesNumber = 1;
+let guesesNumber = 0;
 let playGame = true;
 
 if (playGame) {
@@ -26,7 +26,7 @@ function validateGuess(gueses) {
     alert("please enter Number less than 100 ");
   } else {
     prevGuess.push(gueses);
-    if (guesesNumber === 11) {
+    if (guesesNumber === 10) {
       cleanUpGuess(gueses);
       displayMassage(`Game Over : Random Number was ${randomNumber}`);
       endGame();
@@ -39,22 +39,26 @@ function validateGuess(gueses) {
 }
 
 function checkGuess(gueses) {
-  if (gueses === randomNumber) {
+  if (gueses == randomNumber) {
     displayMassage("You Are Win 😎 ");
     endGame();
   } else if (gueses < randomNumber) {
     displayMassage("Number TOO Low");
   } else if (gueses > randomNumber) {
     displayMassage("Number TOO High");
+  } else {
+    if (prevGuess.includes(gueses)) {
+      alert("You already guessed that number!");
+      return;
+    }
   }
-  //
 }
 
 function cleanUpGuess(gueses) {
-  inputField.valu = "";
+  inputField.value = "";
   PreviousGueses.innerHTML += `${gueses} ,`;
   guesesNumber++;
-  Remaining.innerHTML = `${11 - guesesNumber}`;
+  Remaining.innerHTML = `${10 - guesesNumber}`;
 }
 
 function displayMassage(gueses) {
@@ -71,17 +75,17 @@ function endGame() {
 
 function newGame() {
   resultPara.addEventListener("click", () => {
-    let randomNumber = parseInt(Math.random() * 100 + 1);
+    randomNumber = parseInt(Math.random() * 100 + 1);
 
-    inputField.removeAttribute("disabled");
     resultPara.innerHTML = "";
+    inputField.removeAttribute("disabled");
     prevGuess = [];
+    guesesNumber = 0;
     hiLow.innerHTML = "";
     PreviousGueses.innerHTML = "";
-    guesesNumber = 1;
-    Remaining.innerHTML = `10`;
-
+    Remaining.innerHTML = 10;
     playGame = true;
+    resultPara.style.backgroundColor = "green";
   });
   //
 }
