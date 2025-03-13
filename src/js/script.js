@@ -85,7 +85,6 @@ function newGame() {
     PreviousGueses.innerHTML = "";
     Remaining.innerHTML = 10;
     playGame = true;
-    resultPara.style.backgroundColor = "green";
   });
   //
 }
